@@ -12,3 +12,7 @@ echo "copying completed!"
 echo "copying waybar"
 cp -r "${SOURCE_DIRECTORY}waybar/" "${BACKUP_DIRECTORY}"
 echo "copying completed!"
+
+cd "${BACKUP_DIRECTORY}"
+git add .
+git commit -m "Backup $(date + '%Y-%m-%d %H:%M')"
