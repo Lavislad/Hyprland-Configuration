@@ -15,4 +15,4 @@ echo "copying completed!"
 
 cd "${BACKUP_DIRECTORY}"
 git add .
-git commit -m "Backup $(date + '%Y-%m-%d %H:%M')"
+git commit -m "Backup $(date +'%Y-%m-%d %H:%M:%S')"
