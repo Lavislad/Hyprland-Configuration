@@ -1,79 +1,101 @@
-@import "themes/frappe.css";
-@import "themes/colors.css";
+@import "themes/macchiato.css";
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
-    font-family: Arial;
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    /*color: #fff;*/
+    color: @text;
 }
 
 window#waybar {
-    background-color: @mycolor-background-dark; /*0.4*/
-    border-bottom: 1px solid @mycolor-border-dark;
-    /*border-radius: 15px;*/
-    color: #fff;
+    background-color: shade(@base, 0.9);
+    border: 2px solid alpha(@crust, 0.3);
+    color: #ffffff;
     transition-property: background-color;
     transition-duration: .3s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
 }
 
 #waybar {
   background: transparent;
   color: @text;
   margin: 5px 5px;
-  padding: 5px 0;
 }
 
 button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    /*box-shadow: inset 0 -3px transparent;*/
+    /* Avoid rounded borders under each button name */
     border: none;
 }
 
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
+    /*box-shadow: inset 0 -3px #ffffff;*/
 }
 
+/* you can set a style on hover for any module like this */
 #pulseaudio:hover {
     background-color: rgba(5, 5, 5, 0.5);
 }
 
 #workspaces {
-    border-radius: 2rem 200px 200px 6rem;
+    border-radius: 1rem;
     margin: 5px;
-    background-color: @mycolor-islands-dark;
-    /*border: 1px solid #fa2a55;*/
-    margin-left: 10px; 
-    padding: 5px;
+    background-color: @surface0;
+    margin-left: 1rem; 
+    /*padding: 5px;*/
 }
 
 #workspaces button {
-    min-width: 19px;
-    min-height: 19px;
-    color: @mycolor-nonactive-text;
+    /*min-height: 19px;*/
+    /*min-width: 19px;*/
+    background-color: transparent;
+    color: #ffffff;
     border-radius: 50%;
-    margin: 0 0.3rem;
-    transition: .2s;
-    padding: 0;
-    font-weight: 500;
+    /*padding: 2px;*/
 }
 
 #workspaces button:hover {
-    color: #ee0020;
+    background: rgba(255, 255, 255, 0.4);
+    color: #000;
 }
 
 #workspaces button.focused {
-    background-color: #ee0020;
-    /*box-shadow: inset 0 -3px #ffffff;*/
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #ee0020;
-    border: 2px solid #ee0020;
+    background-color: #ccc;
+    border: 2px solid #ccc;
 }
 
 #workspaces button.active {
-    /*color: #ff3131;*/
-    color: #fff;
-    font-size: 14px;
+    /*background-color: #fff;*/
+    /*color: #000;*/
+    transition: .3s;
 }
 
 #mode {
@@ -97,16 +119,19 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#mpd,
-#language {
-    background-color: @mycolor-islands-dark;
-    padding: 0 0.6rem;
-    margin: 5px 0;
+#mpd {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
-    /* margin-left: 0;*/
+    margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
@@ -115,20 +140,18 @@ button:hover {
 }
 
 #clock {
-    font-size: 16px;
-    font-weight: 500;
-    /*color: #fff;*/
-    border-radius: 1rem;
-    margin-right: 1rem;
-    background-color: transparent;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 #battery {
-    color: @green;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 #battery.charging, #battery.plugged {
-    color: @green;
+    color: #ffffff;
+    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -140,7 +163,13 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    color: @red;
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #power-profiles-daemon {
@@ -180,11 +209,11 @@ label:focus {
 }
 
 #backlight {
-    color: @yellow;
+    background-color: #90b1b1;
 }
 
 #network {
-    
+    background-color: transparent;
 }
 
 #network.disconnected {
@@ -192,11 +221,12 @@ label:focus {
 }
 
 #pulseaudio {
-    border-radius: 100px 0 0 100px;
-    padding-left: 0.6rem;
+    color: #fff;
 }
 
 #pulseaudio.muted {
+    background-color: #fff;
+    color: #000;
 }
 
 #wireplumber {
@@ -270,11 +300,10 @@ label:focus {
 }
 
 #language {
+    color: #fff;
+    /*margin: 5px;*/
     padding: 5px;
     min-width: 22px;
-    border-radius: 0 0.2rem 0.6rem 0;
-    margin-right: 10px;
-    font-weight: 700;
 }
 
 #keyboard-state {

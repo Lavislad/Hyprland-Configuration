@@ -1,3 +1,5 @@
-@define-color mycolor-background-dark #050505;
-@define-color mycolor-border-dark #4d4d4d;
-@define-color mycolor-islands-dark #1e1e1e;
+@define-color mycolor-background-dark #232323;
+@define-color mycolor-islands-dark #464646;
+@define-color mycolor-border-dark #696969;
+@define-color mycolor-nonactive-text #777;
+/*@define-color mycolor-border-dark #9a9ea8;*/
