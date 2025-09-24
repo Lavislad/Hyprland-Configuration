@@ -13,7 +13,11 @@ echo "copying waybar"
 cp -r "${SOURCE_DIRECTORY}waybar/" "${BACKUP_DIRECTORY}"
 echo "copying completed!"
 
-cd "${BACKUP_DIRECTORY}"
-git add .
-git commit -m "Backup $(date +'%Y-%m-%d %H:%M:%S')"
-git push origin master
+echo "copying fastfetch"
+cp -r "${SOURCE_DIRECTORY}fastfetch/" "${BACKUP_DIRECTORY}"
+echo "copying completed!"
+
+# cd "${BACKUP_DIRECTORY}"
+# git add .
+# git commit -m "Backup $(date +'%Y-%m-%d %H:%M:%S')"
+# git push origin master

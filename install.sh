@@ -12,3 +12,7 @@ echo "Installing completed!"
 echo "Installing waybar/"
 cp -r "${BACKUP_DIRECTORY}waybar/" "${SOURCE_DIRECTORY}"
 echo "Installing completed!"
+
+echo "Installing fastfetch/"
+cp -r "${BACKUP_DIRECTORY}fastfetch/" "${SOURCE_DIRECTORY}"
+echo "Installing completed!"
