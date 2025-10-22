@@ -20,6 +20,7 @@
         "clock"
     ],
     "modules-right": [
+        //"tray",
         //"mpd",
         //"idle_inhibitor",
         "pulseaudio",
@@ -30,10 +31,10 @@
         //"temperature",
         //"backlight",
         //"keyboard-state"
-        "hyprland/language"
+        "hyprland/language",
+        "custom/power"
         //"battery",
         //"battery#bat2",
-        // "tray"
         //"custom/power"
     ],
     // Modules configuration
@@ -107,17 +108,17 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth",
+            "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        }
     },
     "clock": {
-        // "timezone": "America/New_York",
-	      "format": "{:%A %H:%M}",
+        "timezone": "Europe/Moscow",
+	      "format": "{:%d.%m <small>%A</small> %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%d-%m-%Y}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -223,16 +224,16 @@
     "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": "",
-      "10": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
       "default": ""
     },
     "on-click": "activate",
@@ -242,12 +243,22 @@
     "disable-scroll": false,
     "sort-by-number": true,
     "dynamic": true // Включение динамического обновления workspace
+   },
+   "hyprland/language": {
+	 "format": "{}",
+	 "format-en": "EN",
+	 "format-ru": "RU",
+	 //"keyboard-name": "at-translated-set-2-keyboard"
+	 "tooltip": false 
+   },
+  "custom/button": {
+    "format": "EN",
+    "tooltip-format": "{}",
+    "tooltip": false,
+    "on-click": "kitty"
   },
-  "hyprland/language": {
-	"format": "{}",
-	"format-en": "EN",
-	"format-ru": "RU",
-	//"keyboard-name": "at-translated-set-2-keyboard"
-	"tooltip": false 
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false
   }
 }

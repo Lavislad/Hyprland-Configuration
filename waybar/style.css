@@ -9,8 +9,8 @@
 }
 
 window#waybar {
-    background-color: @mycolor-background-dark; /*0.4*/
-    border-bottom: 1px solid @mycolor-border-dark;
+    background-color: transparent; /*0.4*/
+    /*border-bottom: 1px solid @mycolor-border-dark;*/
     /*border-radius: 15px;*/
     color: #fff;
     transition-property: background-color;
@@ -28,6 +28,10 @@ button {
     border: none;
 }
 
+#custom-button {
+  background-color: @mycolor-border-dark;
+}
+
 button:hover {
     background: inherit;
 }
@@ -37,9 +41,9 @@ button:hover {
 }
 
 #workspaces {
-    border-radius: 2rem 200px 200px 6rem;
+    border-radius: 0.2rem 1rem 1rem 0.2rem;
     margin: 5px;
-    background-color: @mycolor-islands-dark;
+    background-color: alpha(@mycolor-islands-dark, 0.6);
     /*border: 1px solid #fa2a55;*/
     margin-left: 10px; 
     padding: 5px;
@@ -50,14 +54,14 @@ button:hover {
     min-height: 19px;
     color: @mycolor-nonactive-text;
     border-radius: 50%;
-    margin: 0 0.3rem;
+    margin: 0 0.2rem;
     transition: .2s;
     padding: 0;
     font-weight: 500;
 }
 
 #workspaces button:hover {
-    color: #ee0020;
+    color: #888;
 }
 
 #workspaces button.focused {
@@ -98,10 +102,13 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd,
-#language {
-    background-color: @mycolor-islands-dark;
+#language,
+#custom-power {
+    background-color: alpha(@mycolor-islands-dark, 0.6);
     padding: 0 0.6rem;
-    margin: 5px 0;
+    margin: 5px 5px;
+    border-radius: 0.2rem;
+    border: 2px solid alpha(@mycolor-border-dark, 0.2);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -116,11 +123,10 @@ button:hover {
 
 #clock {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     /*color: #fff;*/
     border-radius: 1rem;
     margin-right: 1rem;
-    background-color: transparent;
 }
 
 #battery {
@@ -192,7 +198,7 @@ label:focus {
 }
 
 #pulseaudio {
-    border-radius: 100px 0 0 100px;
+    border-radius: 1rem 0 0 1rem;
     padding-left: 0.6rem;
 }
 
@@ -272,8 +278,7 @@ label:focus {
 #language {
     padding: 5px;
     min-width: 22px;
-    border-radius: 0 0.2rem 0.6rem 0;
-    margin-right: 10px;
+    /*border-radius: 0 0.2rem 0.6rem 0;*/
     font-weight: 700;
 }
 
@@ -320,4 +325,8 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+#custom-power {
+    margin-right: 10px;
 }
