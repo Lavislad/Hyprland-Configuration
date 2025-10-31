@@ -41,12 +41,13 @@ button:hover {
 }
 
 #workspaces {
-    border-radius: 0.2rem 1rem 1rem 0.2rem;
+    border-radius: 0.4rem;
     margin: 5px;
-    background-color: alpha(@mycolor-islands-dark, 0.6);
+    background-color: alpha(@mycolor-islands-dark, 0.8);
     /*border: 1px solid #fa2a55;*/
     margin-left: 10px; 
     padding: 5px;
+    /*border: 2px solid alpha(@mycolor-border-dark, 0.4);*/
 }
 
 #workspaces button {
@@ -103,12 +104,13 @@ button:hover {
 #power-profiles-daemon,
 #mpd,
 #language,
-#custom-power {
-    background-color: alpha(@mycolor-islands-dark, 0.6);
+#custom-power,
+#custom-hyprpicker {
+    background-color: alpha(@mycolor-islands-dark, 0.8);
     padding: 0 0.6rem;
     margin: 5px 5px;
-    border-radius: 0.2rem;
-    border: 2px solid alpha(@mycolor-border-dark, 0.2);
+    border-radius: 0.4rem;
+    /*border: 2px solid alpha(@mycolor-border-dark, 0.6);*/
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -198,7 +200,7 @@ label:focus {
 }
 
 #pulseaudio {
-    border-radius: 1rem 0 0 1rem;
+    border-radius: 1rem 0.2rem 0.2rem 1rem;
     padding-left: 0.6rem;
 }
 
@@ -329,4 +331,8 @@ label:focus {
 
 #custom-power {
     margin-right: 10px;
+}
+
+#custom-hyprpicker {
+    border-radius: 0.4rem 1rem 1rem 0.4rem;
 }

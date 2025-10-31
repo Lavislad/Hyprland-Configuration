@@ -10,7 +10,8 @@
     //"margin-left": 10,
     //"margin-right": 10,
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/hyprpicker"
        // "sway/mode",
        // "sway/scratchpad",
        // "custom/media"
@@ -259,6 +260,12 @@
   },
   "custom/power": {
     "format": "󰐥",
+    "on-click": "wlogout -p layer-shell",
+    "tooltip": false
+  },
+  "custom/hyprpicker": {
+    "format": "󰌁",
+    "on-click": "hyprpicker",
     "tooltip": false
   }
 }
