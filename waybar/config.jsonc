@@ -11,6 +11,7 @@
     //"margin-right": 10,
     "modules-left": [
         "hyprland/workspaces",
+        "custom/launcher",
         "custom/hyprpicker"
        // "sway/mode",
        // "sway/scratchpad",
@@ -25,6 +26,7 @@
         //"mpd",
         //"idle_inhibitor",
         "pulseaudio",
+        "bluetooth",
         "network",
         //"power-profiles-daemon",
         //"cpu",
@@ -181,11 +183,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "{icon}  {volume}<b>%</b> {format_source}",
+        "format-bluetooth": "{volume}<b>%</b> {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "{volume}%  {format_source}",
-        "format-source": "  {volume}% ",
+        "format-muted": "{volume}<b>%</b>  {format_source}",
+        "format-source": " {volume}<b>%</b>",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -196,7 +198,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -267,5 +270,16 @@
     "format": "󰌁",
     "on-click": "hyprpicker",
     "tooltip": false
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲", // Скрыть когда отключено
+    "format-connected": "󰂱  {device_alias}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager",
+    "on-click-right": "bluetoothctl power toggle"
   }
-}
+},
+
